@@ -1,0 +1,51 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand" href="<%= root_path %>">
+      <h1 style="color:#fff;margin-top:6px;display:none;">RightApp4U</h1>
+      <img src="<%= image_path('logos/logo.png') %>" width="126" alt="RightApp4U Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle"
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggle">
+    <ul class="navbar-nav ml-auto mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= browse_path %>">Browse Deals</a>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Account", account_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, :id => 'sign-up-link', :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, :id => 'log-in-link', :class => 'nav-link'  %>
+        </li>
+      <% end %>
+
+      </ul>
+    </div>
+    <div class="sumo-cart">
+      <% if @cart and !@cart.line_items.blank? %>
+        <a href="<%= cart_path(session[:cart_id]) %>">
+          <img src="<%= image_path('cart-icon.svg') %>" width="auto" height="25" style="margin-top:12px;" alt="Shopping Cart Filled">
+          <span class="cart-navbar">₹ <%= @cart.total_price %></span>
+        </a>
+      <% else %>
+        <a href="#">
+          <img src="<%= image_path('cart-icon.svg') %>" width="auto" height="25" alt="Shopping Cart Empty">
+        </a>
+      <% end %>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RightApp4U <%= content_for?(:title) ? ' - ' + yield(:title) : ' - Exclusive Product Deals for Professionals and Entrepreneurs' %> </title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="RightApp4U | Mittaltiger Enterprises">
+    <meta name="description" content="<%= content_for?(:snippet) ? yield(:snippet) : 'RightApp4U is an ecommerce based website marketing and selling Exclusive Product Deals (Software products, educational training products, other products etc) to Professionals and Entrepreneurs' %>">
+    <meta name="keywords" content="RightApp4U, RightApp4U.com, Chartered Accountants, Company Secretaries, Architects, Lawyers, Advocates, GST Accountants, Income Tax Accountants, Advisors, Entrepreneurs, Store for Entrepreneurs, Store for Small Business Owners, Store for Consultants, Tools, Education, Deals, Startups, Lean, Lean Startups, Small and Medium Business, Corporates, Doctors, Medical Professionals, Homeopathic Doctors, Behaviorial Professionals, HVAC Consultants">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- favicon -->
+    <%= favicon_link_tag asset_path('logos/favicon.ico') %>
+
+    <!-- Apple touch icons -->
+    <link href="<%= asset_path('logos/apple-icon-57x57.png') %>" rel="apple-touch-icon" sizes="57x57" />
+    <link href="<%= asset_path('logos/apple-icon-60x60.png') %>" rel="apple-touch-icon" sizes="60x60" />
+    <link href="<%= asset_path('logos/apple-icon-72x72.png') %>" rel="apple-touch-icon" sizes="72x72" />
+    <link href="<%= asset_path('logos/apple-icon-76x76.png') %>" rel="apple-touch-icon" sizes="76x76" />
+    <link href="<%= asset_path('logos/apple-icon-114x114.png') %>" rel="apple-touch-icon" sizes="114x114" />
+    <link href="<%= asset_path('logos/apple-icon-120x120.png') %>" rel="apple-touch-icon" sizes="120x120" />
+    <link href="<%= asset_path('logos/apple-icon-144x144.png') %>" rel="apple-touch-icon" sizes="144x144" />
+    <link href="<%= asset_path('logos/apple-icon-152x152.png') %>" rel="apple-touch-icon" sizes="152x152" />
+    <link href="<%= asset_path('logos/apple-icon-167x167.png') %>" rel="apple-touch-icon" sizes="167x167" />
+    <link href="<%= asset_path('logos/apple-icon-180x180.png') %>" rel="apple-touch-icon" sizes="180x180" />
+
+    <!-- Android touch icons -->
+    <link href="<%= asset_path('logos/android-icon-144x144.png') %>" rel="icon" sizes="144x144" />
+    <link href="<%= asset_path('logos/android-icon-192x192.png') %>" rel="icon" sizes="192x192" />
+
+    <!-- META TAGS -->
+    <%= canonical_tag -%>
+
+    <link rel="alternate" hreflang="<%= locale %>">
+
+    <% if params[:controller] == 'products' and params[:action] == 'show' %>
+    <link rel="image_src" href="<%= asset_path(url_for(@product.image)) %>">
+    <meta property="og:image" content="<%= asset_path(url_for(@product.image)) %>">
+    <meta name="twitter:image" content="<%= asset_path(url_for(@product.image)) %>">
+    <% else %>
+    <link rel="image_src" href="<%= asset_path('logos/logo-kaala.png') %>">
+    <meta property="og:image" content="<%= asset_path('logos/logo-kaala.png') %>">
+    <meta name="twitter:image" content="<%= asset_path('logos/logo-kaala.png') %>">
+    <% end %>
+
+    <meta property="og:description" content="<%= content_for?(:snippet) ? yield(:snippet) : 'RightApp4U is an ecommerce based website marketing and selling Exclusive Product Deals (Software products, educational training products, other products etc) to Professionals and Entrepreneurs' %>">
+
+    <meta property="og:email" content="support@rightapp4u.com" />
+
+    <meta property="og:site_name" content="RightApp4U" />
+    <meta property="og:title" content="RightApp4U <%= content_for?(:title) ? ' - ' + yield(:title) : ' - Exclusive Product Deals for Professionals and Entrepreneurs' %>">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<%= url_for(:only_path => false) %>">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rightapp4u">
+    <meta name="twitter:url" content="<%= url_for(:only_path => false) %>">
+    <meta name="twitter:title" content="RightApp4U <%= content_for?(:title) ? ' - ' + yield(:title) : ' - Exclusive Product Deals for Professionals and Entrepreneurs' %>">
+    <meta name="twitter:description" content="<%= content_for?(:snippet) ? yield(:snippet) : 'RightApp4U is an ecommerce based website marketing and selling Exclusive Product Deals (Software products, educational training products, other products etc) to Professionals and Entrepreneurs' %>">
+    <meta name="twitter:creator" content="@rightapp4u">
+    <!-- Meta tag for Bing Verification -->
+    <meta name="msvalidate.01" content="14917CA5F70ECE703FCBB27AC64289D6" />
+    <!-- META TAGS ENDS -->
+
+    <% if Rails.env == "production" %>
+      <!-- Google site verification -->
+      <meta name="google-site-verification" content="jBJWJ4iJ53MGVxz8zl526nH3F29PzN4AnOidV7OY8DY" />
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134723242-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-134723242-1');
+      </script>
+    <% end %>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Pace -->
+    <script type="text/javascript">
+      window.paceOptions = {
+        ajax: false, // disabled
+        document: true,
+        eventLag: false, // disabled
+      };
+    </script>
+    <%= javascript_include_tag "pace.min" %>
+
+    <!-- Compiled CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  </head>
+
+  <!-- rightapp4u body class change -->
+  <body class="sumo-product-pg sumo-bg-light" style="<%= 'background-color:#000;' if request.original_url.include?('/about') %>">
+
+    <!-- ******* HEADER ******* -->
+    <%= render 'layouts/header' %>
+    <main>
+      <%= render 'layouts/flash_notices' %>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/subscribe' %>
+    <%= render 'layouts/footer' %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "ratyrate" %>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+    <% if Rails.env == "production" %>
+      <!-- Mautic Tracking Code -->
+      <script>
+          (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+              w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+              m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://automation.rightapp4u.com/mtc.js','mt');
+
+          mt('send', 'pageview');
+      </script>
+      <!-- Subscription Form on Arrival -->
+      <script src="//automation.rightapp4u.com/focus/1.js" type="text/javascript" charset="utf-8" async="async"></script>
+    <% end %>
+  </body>
+</html>

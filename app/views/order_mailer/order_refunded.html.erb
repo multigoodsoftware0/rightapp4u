@@ -1,0 +1,30 @@
+<h1>Dear <%= @user.name %>, it is really painful to see you placing a refund for your Order No: <%= @order.id %></h1>
+
+<h2>What went wrong?</h2>
+
+<h3>Your order had following details :- </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Total Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |li| %>
+      <tr>
+        <td><%= link_to li.product.name, li.product %></td>
+        <td><%= li.quantity %></td>
+        <td><%= li.product.sale_price * li.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  To login to the site, just follow this link: <%= new_user_session_url %>.
+</p>
+
+<p>Thanks for availing our services and have a great day ahead!</p>

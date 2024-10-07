@@ -1,0 +1,54 @@
+<% title 'My Profile' %>
+
+<style media="screen">
+  #profile {
+    padding: 54px 0;
+  }
+</style>
+<section id="profile">
+  <div class="container">
+    <h2>Your Profile</h2>
+
+    <%= render 'profiles/current_user' %>
+
+    <p>
+      <strong>Address1:</strong>
+      <%= @profile.address1 %>
+    </p>
+
+    <p>
+      <strong>Address2:</strong>
+      <%= @profile.address2 %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @profile.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @profile.state %>
+    </p>
+
+    <p>
+      <strong>Pincode:</strong>
+      <%= @profile.pincode %>
+    </p>
+
+    <p>
+      <strong>Mobile:</strong>
+      <%= @profile.mobile %>
+    </p>
+
+    <p>
+      <strong>Company name:</strong>
+      <%= @profile.company_name %>
+    </p>
+
+    <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-warning btn-large" %>
+    <br><br>
+    <%= link_to 'Back', account_path %>
+
+  </div>
+</section>

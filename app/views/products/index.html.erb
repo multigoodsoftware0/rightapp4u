@@ -1,0 +1,113 @@
+<% if canonical_tag.to_s.include?('browse') %>
+  <% snippet 'Browse all latest Software and other Product Deals at RightApp4U' %>
+<% elsif canonical_tag.to_s.include?('products') %>
+  <% snippet 'See all Software and other Product Deals at RightApp4U' %>
+<% else %>
+  <% snippet 'RightApp4U is an ecommerce based website marketing and selling Exclusive Product Deals (Software products, educational training products, other products etc) to Professionals and Entrepreneurs' %>
+<% end %>
+
+<%= stylesheet_link_tag 'browse', media: 'all', 'data-turbolinks-track' => true %>
+
+<section style="background: #fff;">
+  <!-- Browse -->
+  
+  <% if @featured_deal %>
+    <!-- Featured Deal -->
+    <section class="sumo-featured-deal pt-50" style="padding: 50px 0 !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="mb-30" style="padding-bottom: 30px !important;">Browse Deals</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="sumo-featured-badge mb-20 pl-0" style="border:none; font-size:14px;padding-left:15px !important; margin-bottom: 27px !important;">Featured Deal</div>
+          </div>
+        </div>
+        <div class="row mb-20">
+          <div class="col-md-6">
+            <a href="<%= product_path(@featured_deal) %>">
+              <%= image_tag url_for(@featured_deal.image), class: "sumo-featured-img rounded img-fluid mb-30 mb-md-0", alt: "Featured Deal - #{@featured_deal.title}" %>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <h3 class="sumo-deal-name mt-20 mb-10"><%= @featured_deal.title %></h3>
+            <p class="big mb-20"><%= sanitize @featured_deal.slogan %></p>
+            <div class="sumo-taco-rating mb-20">
+              <%= rating_for @featured_deal, 'overall' %>
+            </div>
+            <div class="sumo-price-info big mb-20">
+              <span class="sumo-price">
+                ₹ <%= @featured_deal.sale_price %>
+              </span>
+              <span class="sumo-old-price">
+                ₹ <%= @featured_deal.regular_price %>
+              </span>
+              <% if @featured_deal.total_licenses_available %>
+                <span class="badge-time" style="padding: 9px 15px; font-size: 15px;">Only <%= @featured_deal.total_licenses_remaining %> Remaining</span>
+              <% end %>
+            </div>
+            <a href="<%= product_path(@featured_deal) %>">
+              <button class="btn btn-color-black mb-30">Learn more</button>
+            </a>
+          </div>
+        </div>
+        <div class="row mb-30">
+          <div class="col-12">
+            <hr>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <!-- Deals -->
+  <section class="sumo-deals pb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-20">All Deals</h2>
+        </div>
+        <!-- Search, Filter & Sort -->
+        <!-- <div class=""></div> -->
+      </div>
+      <!-- End Row -->
+      <!-- Deals Start -->
+      <div id="browse-results" class="loading">
+        <div class="row">
+          <% @products.each do |product| %>
+          <div class="sumo-new-grid col-lg-4 col-md-6 d-flex">
+            <div class="sumo-panel-product d-flex flex-column">
+              <figure class="sumo-clip">
+                <a href="<%= product_path(product) %>">
+                  <%= image_tag url_for(product.image), class: "img-fluid", alt: product.title %>
+                </a>
+              </figure>
+              <div class="sumo-mid mb-auto">
+                <p class="mb-10"><%= product.slogan %></p>
+              </div>
+              <div class="sumo-bottom mt-2">
+                <div class="sumo-price-info mb-10">
+                  <span class="sumo-price">₹ <%= product.sale_price %></span>
+                  <span class="sumo-old-price">₹ <%= product.regular_price %></span><br>
+                  <% if product.total_licenses_available %>
+                    <span class="badge-time">Only <%= product.total_licenses_remaining %> Remaining</span>
+                  <% end %>
+                </div>
+                <div class="sumo-product-link d-flex align-items-center">
+                  <a href="<%= product_path(product) %>" style="color:#0275D8;">Learn More</a>
+                  <span class="sumo-link-icon d-flex align-items-center"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" data-prefix="fa" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fa fa-angle-right"></i> --></span>
+                </div>
+              </div>
+            </div>
+            <a class="sumo-panel-link" href="<%= product_path(product) %>"></a>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- End Deals -->
+    </div>
+  </section>
+</section>

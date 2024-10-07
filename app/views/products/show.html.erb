@@ -1,0 +1,240 @@
+<% title @product.title %>
+<% snippet sanitize(@product.snippet, tags:[]) %>
+
+<style media="screen">
+  .badge-time {
+    background: #0A3D62;
+  }
+  .badge-time, .badge-sold {
+    color: #FFF;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 6px 9px;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
+  }
+  #snippet .col div,
+  #snippet-mobile .col div {
+    font-size: 0.95em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  #tldr ul {
+    text-align: center;
+    padding: 54px 0 0 0;
+    background: #fff;
+  }
+  #tldr ul li {
+    display: inline-block;
+    align-items: center;
+    max-width: 360px;
+    margin-right: 9px;
+    margin-bottom: 54px;
+    font-weight: 400;
+    background: #efefef;
+    padding: 18px 9px;
+    border-radius: 6px;
+    border-color: #eee;
+  }
+  #benefits ul {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #benefits ul li {
+    color: #5ebdc0;
+    font-size: 1rem;
+    flex: 0 1 auto;
+  }
+  .attachment-content {
+  	position:relative;
+  	padding-bottom:56.25%;
+  	padding-top:0;
+  	height:0;
+  	overflow:hidden;
+    margin: 18px 0;
+  }
+  .attachment-content iframe {
+  	position:absolute;
+  	top:0;
+  	left:0;
+  	width:100%;
+  	height:100%;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <section class="sumo-section col-lg-9 sumo-product-container sumo-featured">
+      <div class="row">
+        <div class="col-lg-9">
+          <% if @product.deal_active %>
+            <div class="sumo-featured-badge mb-3">Featured Deal</div>
+          <% end %>
+          <div class="sumo-product-header mb-4">
+            <h2 class="sumo-product-name"><%= @product.title %></h2>
+            <h3 class="sumo-product-slogan"><%= @product.slogan %></h3>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+
+        <!-- Main Image -->
+        <div class="col-sm-12">
+          <%= image_tag url_for(@product.image.variant(resize: '1200x1200')), class: "img-fluid rounded", alt: @product.title %>
+        </div>
+      </div>
+      <!-- Close Row -->
+      <!-- Row -->
+      <div id="snippet" class="row">
+        <div class="col">
+          <%= sanitize @product.snippet %>
+        </div>
+      </div>
+    </section>
+
+    <section class="sumo-section sumo-product-sticky-desktop col-lg-3 text-center d-none d-lg-block">
+      <div class="sumo-product-sticky-inner-desktop sticky-desktop">
+        <%= form_tag line_items_path(product_id: @product), method: :post do %>
+          <%= button_tag class: "btn btn-block btn-primary btn-lg mb-4", type: "submit", value: "Buy Now" do %>
+            Buy Now
+          <% end %>
+        <% end %>
+        <div class="sumo-price-line d-flex align-items-center justify-content-center">
+          <div class="sumo-price">₹ <%= @product.sale_price %></div>
+          <div class="sumo-price-meta">
+            <span class="sumo-old-price"><span>₹ <%= @product.regular_price %></span></span>
+            <span class="sumo-save">Save <%= @product.diff_percentage %>%</span>
+          </div>
+        </div>
+        <div class="sumo-reviews-comments sumo-small-label mt-3 mb-4">
+          Overall : <%= rating_for @product, 'overall' %>
+        </div>
+        <% if @product.total_licenses_available %>
+          <span class="badge-time">Only <%= @product.total_licenses_remaining %> Remaining</span>
+        <% end %>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="sumo-section sumo-product-sticky sumo-bg-light text-center d-block d-lg-none">
+    <!-- Sticky Mobile -->
+    <div id='sticky-mobile' class="row sticky-mobile animated fadeInDown">
+      <div class="d-flex align-items-center justify-content-center">
+        <a class="sticky-mobile-brand" href="<%= root_path %>">
+          <img src="<%= image_path('logos/logo.png') %>" width="100" alt="RightApp4U Logo">
+        </a>
+      </div>
+      <div class="sumo-price-line d-flex align-items-center justify-content-center">
+        <div class="sumo-price">₹ <%= @product.sale_price %></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <%= form_tag line_items_path(product_id: @product), method: :post do %>
+          <%= button_tag class: "btn btn-block btn-primary btn-lg mb-4", type: "submit", value: "Buy Now" do %>
+            Buy Now
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- End Sticky Mobile -->
+
+    <div class="row">
+      <div class="col-md-5 col-sm-6 col-xs-12">
+        <%= form_tag line_items_path(product_id: @product), method: :post do %>
+          <%= button_tag class: "btn btn-block btn-primary btn-lg mb-4", type: "submit", value: "Buy Now" do %>
+            Buy Now
+          <% end %>
+        <% end %>
+      </div>
+      <div class="sumo-price-line d-flex align-items-center justify-content-center">
+        <div class="sumo-price">₹ <%= @product.sale_price %></div>
+        <div class="sumo-price-meta">
+          <span class="sumo-old-price"><span>₹ <%= @product.regular_price %></span></span>
+          <span class="sumo-save">Save <%= @product.diff_percentage %>%</span>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-6 offset-md-1">
+        <div class="sumo-reviews-comments sumo-small-label mt-3 pt-1">
+          Overall : <%= rating_for @product, 'overall' %>
+        </div>
+        <% if @product.total_licenses_available %>
+          <span class="badge-time">Only <%= @product.total_licenses_remaining %> Remaining</span>
+        <% end %>
+      </div>
+      <div class="col-md-5 col-sm-6 ">
+      </div>
+
+    </div>
+  </section>
+
+  <div id="snippet-mobile" class="row">
+    <div class="col">
+      <%= sanitize @product.snippet %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-9 sumo-product-container">
+      <!-- Top Features Section -->
+      <section id="tldr" class="sumo-section sumo-section-tldr sumo-border-b">
+        <h2>TL;DR</h2>
+        <div class="row py-3">
+          <%= sanitize @product.tldr %>
+        </div>
+      </section>
+
+      <!-- Story Section -->
+      <section class="sumo-section" id="story">
+        <%= @product.description.html_safe %>
+      </section>
+
+      <!-- Features Section -->
+      <section class="sumo-section sumo-bg-dark" id="benefits-section">
+        <div class="d-flex align-items-center flex-column flex-md-row">
+          <div class="my-flex-item col-md-5 text-center">
+            <%= image_tag url_for(@product.logo), class: "img-fluid mb-4", alt: @product.title %>
+            <div class="sumo-price-line sumo-price-big d-inline-flex align-items-center">
+              <div class="sumo-price">₹ <%= @product.sale_price %></div>
+              <div class="sumo-price-meta">
+                <span class="sumo-old-price deal-feature-text">
+                  <span class="">₹ <%= @product.regular_price %></span>
+                </span>
+                <span class="sumo-save">Save <%= @product.diff_percentage %>%</span>
+              </div>
+            </div>
+            <div class="sumo-reviews-comments sumo-small-label mt-4">
+              Overall : <%= rating_for @product, 'overall' %>
+            </div>
+          </div>
+          <div id="benefits" class="my-flex-item col-md-7">
+            <%= sanitize @product.benefits %>
+          </div>
+        </div>
+      </section>
+
+      <section id="review-section" class="sumo-section">
+        <div class="" style="padding:12px 0;background:#fff;">
+          <%= commontator_thread(@product) %>
+        </div>
+      </section>
+
+      <div id="stopper"></div>
+      <div class='scrolltop'>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 offset-lg-9">
+              <div class='scroll icon'>
+                <p class="mb-2">Scroll to Top</p>
+                <i class="scrolltop-icon fa fa-angle-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

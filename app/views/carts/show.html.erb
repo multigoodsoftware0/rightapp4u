@@ -1,0 +1,76 @@
+<% title "Cart" %>
+<% snippet "Your Cart at RightApp4U" %>
+
+<div class="container">
+  <section class=cart-section>
+    <div class="row ">
+      <div class="col-lg-5 carts" style="border-right: 1px solid #ddd;background:#fff;padding:36px;">
+        <% if current_user %>
+          <!-- <h1>SOMETEXT SOMETEXT SOMETEXT</h1> -->
+          <h3 style="padding-top: 0px;">100% Secured, PCI Compliant and ISO 27001:2013 Certified - Powered By : </h3>
+          <%= image_tag 'razorpay-logo.jpg', width: 360, class: 'img-fluid' %>
+          <%= image_tag 'payment-modes.png', width: 360, class: 'img-fluid', style: 'border:3px solid #eee;' %>
+        <% else %>
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+            <div class="actions">
+              <%= button_tag "Log in", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+
+      <div class="col-lg-1"></div>
+
+      <div class="col-lg-6 carts">
+        <!-- <div class="text-right">
+          <%= link_to 'Keep Shopping', '#', class: 'btn btn-success' %>
+        </div>
+        <hr /> -->
+        <h2>Let's Review Your Order</h2>
+        <span style="color:#999;">So close to getting the deal ...</span>
+        <br><br>
+        <table border=1>
+          <%= render(@cart.line_items) %>
+          <tr class="total_line">
+            <td colspan="2">Total</td>
+            <td class="total_cell">₹<%= @cart.total_price %></td>
+          </tr>
+        </table>
+        <div class="carts col-lg-12">
+          <div class="row">
+            <div class="col-lg-6">
+              <% if current_user and (@cart and !@cart.line_items.blank?) %>
+                <%= render 'carts/razorpay' %>
+              <% elsif @cart and !@cart.line_items.blank? %>
+                <%= submit_tag 'Login to Checkout', class: "btn btn-success btn-lg" %>
+              <% else %>
+                <h3>Cart is Blank!</h3>
+                <span>Add some product in your cart to Buy.</span>
+              <% end %>
+            </div>
+            <div class="col-lg-6">
+              <% unless @cart.line_items.blank? %>
+                <%= button_to 'Empty cart', @cart, class: "btn btn-light", style: "margin-top:7px;", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

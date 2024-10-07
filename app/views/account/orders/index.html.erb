@@ -1,0 +1,178 @@
+<% title "My Orders" %>
+<% snippet "My Orders at RightApp4U" %>
+
+<style media="screen">
+#account-orders a {
+  color: #0275d8;
+}
+/* Purchases Table (Tablet / Desktop) */
+/* ---------------------------------- */
+
+.sumo-purchases-table .sumo-th-action,
+.sumo-purchases-table .sumo-td-action {
+  width: 200px;
+}
+.sumo-purchases-table th:first-child,
+.sumo-purchases-table td:first-child {
+  padding-left: 0;
+}
+.sumo-purchases-table th:last-child,
+.sumo-purchases-table td:last-child {
+  padding-right: 0;
+}
+</style>
+
+<section>
+  <div class="container">
+    <div class="col-lg-12">
+
+      <div id="account-orders" class="" style="padding-bottom: 36px;">
+        <h2 style="margin-top:51px;">My Orders</h2>
+        <!-- Items (Desktop) -->
+        <div class="row d-none d-lg-block">
+          <div class="col-12">
+            <!-- Table -->
+            <table class="table sumo-purchases-table my-20" style="text-align:center;">
+              <thead>
+                <tr>
+                  <th scope="col" class="sumo-th-name"><span>Order ID</span></th>
+                  <th scope="col" class="sumo-th-purchased"><span>Order Date</span></th>
+                  <th scope="col" class="sumo-th-purchased"><span>Order Amount</span></th>
+                  <th scope="col" class="sumo-th-name"><span>Payment ID</span></th>
+                  <th scope="col" class="sumo-th-name"><span>Status</span></th>
+                  <th scope="col" class="sumo-th-redeem"><span>Products</span></th>
+                  <th scope="col" class="sumo-th-refund"><span>Refund End Date</span></th>
+                  <th scope="col" class="sumo-th-action"><span></span></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.id %></td>
+                  <td><%= order.created_at.to_formatted_s(:long) %></td>
+                  <td><%= order.total_price.to_f %></td>
+                  <td><%= order.payment_id %></td>
+                  <td>
+                    <span style="
+                    <% if order.status == 'captured' %>
+                    background: green;color: #fff;padding:6px;
+                    <% elsif order.status == 'authorized' %>
+                    background: orange;color: #fff;padding:6px;
+                    <% elsif order.status == 'refunded' %>
+                    background: red;color: #fff;padding:6px;
+                    <% end %>
+                    ">
+                    <%= order.status %>
+                  </span>
+                </td>
+                <td>
+                  <ul>
+                    <% order.products.each do |product| %>
+                    <li><%= link_to product.name, product_path(product) %></li>
+                    <% end %>
+                  </ul>
+                </td>
+                <td><%= (order.created_at + 60.days).to_formatted_s(:long) %></td>
+                <td>
+                  <!-- <%#= link_to 'View', account_order_path(order) %> | -->
+                  <%= link_to 'Invoice', account_order_path(order) %>
+                  <% if order.status == "captured" and order.created_at + 60.days > DateTime.now %>
+                  |
+                  <%= link_to 'Refund', account_order_refund_path(order), :data => {:confirm => "Are you sure?"} %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+
+          </table>
+          <!-- End Table -->
+        </div>
+        <%= link_to 'Back', account_path %>
+      </div>
+      <!-- End Items (Desktop) -->
+
+      <!-- Items (Mobile) -->
+      <div class="row d-flex d-lg-none sumo-purchases-stack " style="margin-top:51px;">
+        <% @orders.each do |order| %>
+          <!-- Item -->
+          <div class="col-md-6 sumo-new-grid" style="border-bottom: 1px solid #ddd;background:#efefef;margin-bottom: 27px;">
+            <div class="sumo-item">
+              <div class="sumo-item-row sumo-img">
+                <div class="">
+                  <u>Order ID:</u>
+                </div>
+                <div class="">
+                  <%= order.id %>
+                </div>
+              </div>
+              <div class="sumo-item-row sumo-purchased">
+                <div>
+                  <u>Order Date: </u>
+                </div>
+                <div>
+                  <%= order.created_at.to_formatted_s(:long) %>
+                </div>
+              </div>
+              <div class="sumo-item-row sumo-purchased">
+                <div>
+                  <u>Order Amount: </u>
+                </div>
+                <div>
+                  ₹ <%= order.total_price %>
+                </div>
+              </div>
+              <div class="sumo-item-row sumo-purchased">
+                <div class="">
+                  <u>Status: </u>
+                </div>
+                <div class="">
+                  <span style="
+                  <% if order.status == 'captured' %>
+                  background: green;color: #fff;padding:6px;
+                  <% elsif order.status == 'authorized' %>
+                  background: orange;color: #fff;padding:6px;
+                  <% elsif order.status == 'refunded' %>
+                  background: red;color: #fff;padding:6px;
+                  <% end %>
+                  ">
+                  <%= order.status %>
+                </span>
+                </div>
+              </div>
+              <div class="sumo-item-row sumo-name">
+                <div>
+                  <u>Products: </u> <br>
+                  <ul>
+                    <% order.products.each do |product| %>
+                      <li><%= link_to product.name, product_path(product) %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="sumo-item-row sumo-refund free">
+                <div>
+                  <u>Refund End Date: </u>
+                </div>
+                <div>
+                  <%= (order.created_at + 60.days).to_formatted_s(:long) %>
+                </div>
+              </div>
+            </div>
+            <div class="float-left" style="">
+              <!-- <%#= link_to 'View', account_order_path(order) %> | -->
+              <%= link_to 'Invoice', account_order_path(order) %>
+              <% if order.status == "captured" and order.created_at + 60.days > DateTime.now %>
+              &nbsp;|&nbsp;
+              <%= link_to 'Refund', account_order_refund_path(order) %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- End Items (Mobile) -->
+
+    </div>
+  </div>
+</section>

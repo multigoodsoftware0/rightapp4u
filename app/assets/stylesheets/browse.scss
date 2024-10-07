@@ -1,0 +1,125 @@
+/* ----------------------- */
+/* ----- Browse Page ----- */
+/* ----------------------- */
+
+.sumo-clip {
+	overflow: hidden;
+	margin: 0;
+}
+.sumo-panel-product .sumo-clip img {
+	margin: 0;
+	width: 100%;
+}
+/* Price Info Line */
+.sumo-price-info.big {
+	font-size: 20px;
+}
+.sumo-price-info .sumo-price {
+	/* overwrites */
+	margin-left: 0;
+	font-weight: bold;
+}
+.sumo-price-info .sumo-old-price {
+	padding-left: 0;
+	font-weight: 400;
+	text-decoration: line-through;
+}
+.sumo-price-info .sumo-price,
+.sumo-price-info .sumo-old-price {
+	font-size: inherit;
+	padding-right: 10px;
+}
+.sumo-price-info.sold .sumo-price {
+	color: #868686;
+	font-weight: normal;
+}
+/* Sumo Deals */
+/* ---------- */
+@media (max-width: 991px) {
+	.sumo-deals .form-inline input[type=email],
+	.sumo-deals .form-inline input[type=search],
+	.sumo-deals .form-inline input[type=text],
+	.sumo-deals .sumo-discount-form input[type=email],
+	.sumo-deals .sumo-discount-form input[type=search],
+	.sumo-deals .sumo-discount-form input[type=text],
+	.sumo-deals .sumo-sort-filter .dropdown-toggle {
+		min-width: 100%;
+	}
+	.sumo-deals .sumo-sort-filter .form-inline,
+	.sumo-deals .dropdown {
+		width: 100%;
+	}
+}
+
+/* Sumo Panels */
+/* ----------- */
+.sumo-panel-link {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 17px;
+	right: 17px;
+	border: 1px solid rgba(2, 117, 216, 0);
+	transition: all 0.3s;
+}
+.sumo-panel-link:hover,
+.sumo-panel-link:focus {
+	border: 1px solid #0275D8;
+	box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.1);
+}
+.sumo-panel-product {
+	/* overwrites */
+	padding: 0;
+	border-radius: 0;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s;
+}
+.sumo-panel-product .sumo-mid {
+	padding: 30px 20px 0;
+}
+.sumo-panel-product .sumo-bottom {
+	padding: 0 20px 28px;
+}
+.sumo-panel-product {
+	flex: 1;
+}
+.sumo-panel-product p {
+	/* overwrites */
+	margin: 0;
+	font-size: inherit;
+}
+.sumo-panel-product .sumo-product-link {
+	font-size: 12px;
+	font-weight: 500;
+}
+.sumo-panel-product .sumo-product-link .sumo-link-icon {
+	padding-left: 8px;
+	color: #0275d8;
+	font-size: 12px;
+}
+
+.sumo-panel-product .sumo-price-info .badge-time,
+.sumo-panel-product .sumo-price-info .badge-sold {
+	padding: 6px 9px;
+}
+
+.badge-time {
+  background: #0A3D62;
+}
+
+.badge-time, .badge-sold {
+  color: #FFF;
+  font-size: 10px;
+  line-height: 18px;
+  border-radius: 5px;
+  letter-spacing: 0.02em;
+}
+
+#browse-results.loading {
+  width: 100%;
+	padding-bottom: 81px !important;
+  /*height: 800px;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*background-image: url(../images/browse/as-browse-placeholder.svg);*/
+}

@@ -1,0 +1,379 @@
+/* General */
+
+.upvote-button {
+	font-weight: 900;
+}
+
+/* Comments */
+
+.sumo-comment-container {
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+	box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+	border-radius: 15px;
+	font-size: 1rem;
+	width: 100%;
+}
+
+.sumo-comment-single-thread-nav {
+    font-style: italic;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.load-all-button {
+    margin-left: 0.7rem;
+}
+
+.sumo-comment-actions .upvote-inline {
+	margin-bottom: 0.7rem;
+}
+.comment-extra a {
+	margin-left: 0;
+}
+
+.sumo-comment {
+	padding: 2.5rem 3rem;
+}
+.sumo-comment-children {
+	overflow: hidden;
+	background: #FAFAFA;
+	padding-bottom: 2.5rem;
+}
+.sumo-comment-child {
+	padding: 2.5rem 0 0;
+}
+.item-comment-level-0 {
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+.item-comment-level-1 {
+	padding-left: 9rem;
+	padding-right: 3rem
+}
+.item-comment-level-2 {
+	padding-left: 6rem;
+}
+.item-comment-level-3 {
+	padding-left: 6rem;
+}
+.item-comment-level-0,
+.item-comment-level-1,
+.item-comment-level-2,
+.item-comment-level-3 {
+	border-left: 0;
+	margin-left: 0;
+}
+
+/* Comment Components */
+
+.sumo-comment-main	{
+	width: 100%;
+}
+.sumo-comment-intro {
+	flex: 0 0 6rem;
+}
+.sumo-comment-body {
+	flex-basis:	100%;
+}
+.sumo-comment-actions button{
+	min-width: 100px;
+	margin-left: 0.5rem;
+}
+.sumo-comment-actions .btn.btn-sm {
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
+}
+.sumo-comment-body .sumo-meta {
+	color: #ccc;
+	font-size: 0.7em;
+	text-align: center;
+	padding-top: 0.4em;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.sumo-comment-body .sumo-meta .sumo-divider {
+	margin: auto 0.75em;
+}
+.sumo-comment-body .comment-special {
+	font-size: 0;
+	/*font-size:0 removes extra white space between spans */
+}
+.sumo-comment-body .comment-special span {
+	padding: 0 0.5em;
+	position: relative;
+	display: inline-block;
+	font-size: 0.8rem;
+}
+.sumo-comment-body .comment-special span:last-child {
+	padding-right: 0;
+}
+.sumo-comment-body .comment-special span:after {
+	content: "";
+	display: inline-block;
+	background: #cccccc;
+	width: 1px;
+	height: 30%;
+	position: absolute;
+	right: 0;
+	top: 30%;
+}
+.sumo-comment-body .comment-special span:last-child:after {
+	display: none;
+}
+
+/* Expand Child Comment */
+
+.sumo-expand-child-comments {
+	text-align: right;
+	font-size: 0.8em;
+	margin: 1em 0 0;
+	position: relative;
+	background: #FAFAFA;
+	padding: 1rem 3rem;
+	color: #555;
+}
+/*.sumo-expand-child-comments .sumo-comment-count {*/
+/* V9 */
+.sumo-expand-child-comments .sumo-comment-count {
+	height: 1.95em;
+	width: 1.95em;
+	font-size: 0.7em;
+	border-radius: 50%;
+	border: 1px solid #555;
+	display: inline-block;
+	text-align: center;
+	line-height: 1.9;
+	margin-left: 0.3em;
+	position: relative;
+	bottom: 0.15em;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sumo-expand-child-comments .sumo-clicker {
+	position: relative;
+	padding-left: 1.5em;
+	cursor: pointer;
+	opacity: 0.85;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sumo-expand-child-comments .sumo-clicker:hover {
+	position: relative;
+	padding-left: 1.5em;
+	cursor: pointer;
+	opacity: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.sumo-expand-child-comments .sumo-clicker:hover .sumo-comment-count {
+	color: #FFBC00;
+	border-color: #FFBC00;
+}
+.sumo-expand-child-comments .sumo-clicker:before {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		left: 0.2em;
+		top: 0.2em;
+		border-width: 0 0.35em 0.5em  0.35em;
+		border-color: transparent transparent #777 transparent;
+    -webkit-transition: transform 0.3s;
+    transition: transform 0.3s;
+}
+.sumo-expand-child-comments .sumo-clicker.collapsed:before {
+	transform: rotate(180deg);
+}
+
+/* Responsive Comments */
+
+@media (max-width: 992px) {
+	.sumo-comment-container {
+		font-size: 0.7rem;
+	}
+	.sumo-comment {
+		padding: 1.8rem 1.3rem;
+	}
+	.sumo-comment-intro {
+		flex: 0 0 3rem;
+	}
+	.sumo-comment-intro .gravatar img {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+	.sumo-comment-body .sumo-meta {
+		font-size: 0.6em;
+		text-align: left;
+	}
+	.sumo-comment-body .sumo-meta .sumo-divider {
+		opacity: 0;
+	}
+	.sumo-comment-actions .btn.btn-sm {
+		padding: 0.4rem 0.9rem;
+		font-size: 0.65rem;
+		min-width: 90px;
+	}
+	.sumo-comment-children .gravatar {
+		text-align: right;
+	}
+	.sumo-comment-children .sumo-comment-intro .gravatar img {
+		width: 1.9rem;
+		height: 1.9rem;
+		margin-right: 0.7rem;
+	}
+	.sumo-comment-body .sumo-name {
+		font-size: 0.9rem;
+	}
+	.sumo-comment-body .sumo-meta {
+		margin-bottom: 1rem;
+		line-height: 1.4;
+	}
+	.item-comment-level-0,
+	.item-comment-level-1 {
+		padding-left: 1.3rem;
+	}
+	.item-comment-level-1 {
+		padding-left: 1.3rem;
+		padding-right: 1.3rem;
+		position: relative;
+	}
+	.item-comment-level-2,
+	.item-comment-level-3 {
+		padding-left: 2.4rem;
+		position: relative;
+	}
+	.sumo-comment-child {
+		overflow-x: visible;
+	}
+
+	.item-comment-level-1:before,
+	.item-comment-level-2:before,
+	.item-comment-level-3:before {
+		content: "";
+		position: absolute;
+		top: 5.5rem;
+		bottom: 0;
+		width: 3px;
+		background: #F0F0F0;
+		z-index: 1;
+		/* Updated z-index to prevent overlap of product mobile "buy now" bar*/
+		/* V9 */
+		left: 2.5rem;
+		border-radius: 2px;
+	}
+	.item-comment-level-2:before,
+	.item-comment-level-3:before {
+		left: 3.6rem;
+	}
+}
+
+@media (max-width: 575px) {
+	.sumo-comment-container {
+		margin-left: -17px;
+		margin-right: -17px;
+		width: 100vw;
+	}
+}
+
+/* Moderator & Bought Comments */
+
+.sumo-partner > .sumo-comment-main {
+	position: relative;
+}
+.sumo-partner > .sumo-comment-main:before {
+	content: "";
+	display: block;
+	background: #fff;
+	position: absolute;
+	top: -1.5rem;
+	bottom: -1.15rem;
+	left: -1.5rem;
+	right: -1.5rem;
+	border-radius: 5px;
+	opacity: 0.5;
+	border: 1px solid rgba(94, 189, 192, 0.65)
+}
+.sumo-partner > .sumo-comment-main .sumo-name,
+.sumo-bought > .sumo-comment-main .sumo-name {
+	position: relative;
+	display: inline-block;
+}
+.sumo-partner > .sumo-comment-main .sumo-name:after,
+.sumo-bought > .sumo-comment-main .sumo-name:after {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	padding: 0.3em 0.7em;
+	margin-left: 0.8em;
+	border-radius: 3px;
+	color: #fff;
+	line-height: 1;
+	font-size: 0.7em;
+	font-weight: 500;
+	min-width: 2.8em;
+}
+.sumo-partner > .sumo-comment-main .sumo-name:after {
+	content: "Creator";
+	background: #5ebdc0;
+}
+.sumo-bought > .sumo-comment-main .sumo-name:after {
+	content: "\00a0";
+	white-space: pre;
+	background: rgba(0, 173, 33, 0.7);
+	background-image: url(../images/discussions/as-bought-icon.svg);
+	background-size: 1.25em auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.sumo-comment-intro,
+.sumo-comment-body {
+	position: relative;
+}
+
+/* Comment Tabs */
+/* Additions: V9 - Product  */
+
+.tab-content .tab-pane.fade {
+	transition: opacity 0.6s linear;
+}
+.sumo-comment-tabs .sumo-comment-count {
+	margin-left: 0.8em;
+	background: #A9A9A9;
+	padding: 0.25em 0.6em;
+  	font-size: .6rem;
+  	font-weight: 600;
+  	line-height: 1rem;
+  	border-radius: 0.7em;
+  	color: #fff;
+  	opacity: 0.7;
+  	-webkit-transition: border-color 0.3s;
+  	transition: border-color 0.3s;
+}
+.sumo-comment-tabs .active .sumo-comment-count {
+	background: #FFBC00;
+	opacity: 0.9;
+}
+.sumo-comment-tabs .nav-item {
+	position: relative;
+	top: 1px;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+.sumo-comment-tabs .nav-link {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border: 1px solid #FFF;
+	border-bottom-color: #DDD;
+	color: #A9A9A9;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.sumo-comment-tabs .nav-link.active {
+	border-color: #ddd;
+	border-bottom-color: #fff;
+	color: #FFBC00;
+}

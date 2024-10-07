@@ -1,0 +1,48 @@
+<% title "Login" %>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <h2>Log in</h2>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= button_tag "Log in", class: "btn btn-primary btn-lg mb-4" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+
+      <style media="screen">
+        .exclusive-text h1, .exclusive-text h2, .exclusive-text h3 {
+          padding-top: 18px;
+        }
+      </style>
+      <div class="exclusive-text col-lg-6 col-md-6 col-sm-6">
+        <h1>Get Exclusive Access To The Best Software Deals.</h1>
+        <h2 style="color: #555;">For Chartered Accountants, Company Secretaries, Tax Practitioners, Architects, Interior Designers, Consultants, Engineers, Project Managers, Entrepreneurs etc.</h2>
+        <h3 class="font-weight-normal text-muted">Sign in for access to member only items and discover amazing products.</h3>
+      </div>
+
+    </div>
+  </div>
+</section>

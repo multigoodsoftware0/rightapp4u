@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RightApp4U <%= content_for?(:title) ? ' - ' + yield(:title) : ' - Exclusive Product Deals for Professionals and Entrepreneurs' %></title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="RightApp4U | Mittaltiger Enterprises">
+    <meta name="description" content="RightApp4U is an ecommerce website marketing and selling exclusive deals of b2b software apps">
+    <meta name="keywords" content="RightApp4U, RightApp4U.com, Chartered Accountants, Company Secretaries, Architects, Lawyers, Advocates, GST Accountants, Income Tax Accountants, Advisors, Entrepreneurs, Store for Entrepreneurs, Store for Small Business Owners, Store for Consultants, Tools, Education, Deals, Startups, Lean, Lean Startups, Small and Medium Business, Corporate">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- favicon -->
+    <!-- <link rel="shortcut icon" type="image/png" href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/favicon.ico"> -->
+
+    <!-- Apple touch icons -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" /> -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" /> -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/apple-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" /> -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" /> -->
+
+    <!-- Android touch icons -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/android-icon-144x144.png" rel="icon" sizes="144x144" /> -->
+    <!-- <link href="https://s3.us-west-2.amazonaws.com/static.appsumo2/static/images/android-icon-192x192.png" rel="icon" sizes="192x192" /> -->
+
+    <link rel="canonical" href="">
+
+    <!-- <link rel="image_src" href="https://s3.us-west-2.amazonaws.com/static.appsumo2/media/cache/9d/ef/9def5dab33ff945f03ff3f3bbf60a280.jpg"> -->
+
+    <!-- OG -->
+    <!-- <meta property="og:description" content="A sleek and streamlined interface delivering user-friendly analytics"> -->
+    <meta property="og:email" content="support@rightapp4u.com" />
+    <!-- <meta property="og:image" content="https://s3.us-west-2.amazonaws.com/static.appsumo2/media/cache/9d/ef/9def5dab33ff945f03ff3f3bbf60a280.jpg"> -->
+    <meta property="og:site_name" content="RightApp4U" />
+    <meta property="og:title" content="Task Tracker | Exclusive Offer from RightApp4U">
+    <meta property="og:type" content="article">
+    <!-- <meta property="og:url" content="https://appsumo.com/visitor-analytics/"> -->
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mittaltiger1">
+    <!-- <meta name="twitter:url" content="https://appsumo.com/visitor-analytics/"> -->
+    <!-- <meta name="twitter:title" content="Visitor Analytics | Exclusive Offer from AppSumo"> -->
+    <!-- <meta name="twitter:description" content="A sleek and streamlined interface delivering user-friendly analytics"> -->
+    <meta name="twitter:creator" content="@mittaltiger1">
+    <!-- <meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/static.appsumo2/media/cache/9d/ef/9def5dab33ff945f03ff3f3bbf60a280.jpg"> -->
+
+    <!-- Google site verification -->
+    <!-- <meta name="google-site-verification" content="u_j4WV2p0-VICaT8L3GSlVmUNb_9_W-cb7Y9aBr3Dv0"> -->
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Pace -->
+    <script type="text/javascript">
+      window.paceOptions = {
+        ajax: false, // disabled
+        document: true,
+        eventLag: false, // disabled
+      };
+    </script>
+    <%= javascript_include_tag "pace.min" %>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+    <!-- Compiled CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <body class="sumo-product-pg sumo-bg-light">
+    <!-- ******* HEADER ******* -->
+    <%= render 'layouts/header' %>
+    <main>
+      <%= render 'layouts/flash_notices' %>
+      <div class="col-lg-12 col-md-12 col-sm-12 sumo-section">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render 'layouts/subscribe' %>
+    <%= render 'layouts/footer' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': '' %>
+  </body>
+</html>

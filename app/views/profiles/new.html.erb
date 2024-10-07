@@ -1,0 +1,14 @@
+<% title 'Create Profile' %>
+<style media="screen">
+  #profile {
+    padding: 54px 0;
+  }
+</style>
+<section id="profile">
+  <div class="container">
+    <h2>New Profile</h2>
+    <%= render 'form', profile: @profile %>
+    <br>
+    <%= link_to 'Back', account_path %>
+  </div>
+</section>

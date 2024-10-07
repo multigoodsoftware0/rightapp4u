@@ -1,0 +1,439 @@
+/* Product Page */
+
+@media (min-width: 576px) {
+	.sumo-product-pg .container {
+		max-width: 100%;
+	}
+}
+@media (min-width: 768px) {
+	.sumo-product-pg .container {
+		max-width: 100%;
+	}
+}
+@media (min-width: 992px) {
+	.sumo-product-pg .container {
+		max-width: 980px;
+	}
+}
+@media (min-width: 1200px) {
+	.sumo-product-pg .container {
+		max-width: 1150px;
+	}
+}
+@media (max-width: 575px) {
+	.sumo-product-pg .sumo-comment-container {
+		margin-left: auto;
+		margin-right: auto;
+		width: auto;
+	}
+}
+
+@media all and (max-width: 1200px) { /* screen size until 1200px */
+    body {
+        font-size: 1.5em; /* 1.5x default size */
+    }
+}
+@media all and (max-width: 1000px) { /* screen size until 1000px */
+    body {
+        font-size: 1.2em; /* 1.2x default size */
+        }
+    }
+@media all and (max-width: 500px) { /* screen size until 500px */
+    body {
+        font-size: 0.8em; /* 0.8x default size */
+        }
+    }
+
+.sumo-product-pg main {
+	overflow: hidden;
+	margin-top: 70px;
+}
+.sumo-product-pg .navbar {
+	z-index: 100;
+}
+.sumo-product-pg main > .container {
+	position: relative;
+}
+.sumo-product-header .sumo-product-slogan {
+	font-weight: 500;
+}
+.sumo-product-pg .tab-content {
+	padding: 0;
+}
+.sumo-product-pg .sumo-price {
+	font-size: 1em;
+}
+.sumo-product-pg .sumo-old-price {
+	font-size: 0.8em;
+}
+.sumo-product-pg .sumo-price-line .sumo-price {
+	padding-right: 0.6em;
+}
+.sumo-product-pg .sumo-price-line .sumo-price-meta {
+	padding-left: 0.6em;
+}
+.sumo-product-pg .progress-bar {
+	background: #a9a9a9;
+}
+.sumo-product-container {
+	background-color: #FFF;
+	/*-webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);*/
+}
+@media (min-width: 992px) {
+	.sumo-product-container  {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+.sumo-product-container .sumo-section.sumo-bg-dark {
+	/* Stretch background color across container */
+	margin-left: -2rem;
+	margin-right: -2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+.sumo-product-pg .progress {
+	margin: 0;
+}
+.sumo-product-pg .sumo-price-line {
+	padding: 0;
+}
+.sumo-product-pg .progress,
+.sumo-product-pg .sumo-price-line {
+	margin-left: auto;
+	margin-right: auto;
+}
+.sumo-product-pg .progress,
+.sumo-product-sticky-desktop .sumo-price-line {
+	max-width: 240px;
+	display: inline-block;
+}
+.sumo-reviews-comments spa,
+.sumo-save {
+	white-space:nowrap;
+}
+.sumo-price-line {
+	line-height: 1;
+}
+
+/* TL;DR Section */
+/* ------------- */
+
+.sumo-section-tldr > .row {
+	margin-left: 0;
+	margin-right: 0;
+}
+.sumo-section-tldr > .row p {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0;
+}
+.sumo-section-tldr > .row p:before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	top: .4em;
+	width: 15px;
+	height: 15px;
+	flex-basis: 15px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin-right: 15px;
+	border-radius: 50%;
+	background: #FFBC00;
+}
+.sumo-section-tldr .row > * {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+@media (max-width: 575px) {
+	.sumo-section-tldr .row > *:nth-child(odd) {
+		background-color: #FAFAFA;
+	}
+}
+@media (min-width: 576px) {
+	.sumo-section-tldr .row > *:nth-child(4n+1),
+	.sumo-section-tldr .row > *:nth-child(4n+2) {
+		background-color: #FAFAFA;
+	}
+}
+
+/* Story Section */
+/* ------------- */
+
+#story img {
+	padding: 1rem;
+	border-radius: 1rem;
+	max-width: 100%;
+	height: auto;
+	-webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.15);
+}
+#story img,
+#story ul,
+#story ol {
+	margin-bottom: 2.5rem;
+}
+#story h2 {
+	margin-bottom: 1.5rem;
+}
+#story h3,
+#story h4,
+#story h5,
+#story h6 {
+	font-weight: 500;
+	margin-bottom: 1.5rem;
+}
+
+/* Overwrites of Compiled CSS  */
+/* ----------------------- */
+
+.sumo-product-pg .sumo-featured {
+	position: relative;
+	z-index: 20;
+}
+@media (max-width: 991px) {
+	.sumo-product-pg .sumo-featured-hero {
+		-webkit-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.15);
+		box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.15);
+		position: relative;
+		z-index: 2;
+	}
+}
+.sumo-product-pg .sumo-featured-badge {
+	padding: 0;
+	border: none;
+}
+
+/* Sticky Buy Button – Desktop */
+/* -------------------------- */
+
+.sumo-product-sticky {
+	position: relative;
+	margin-left: -17px;
+	margin-right: -17px;
+	padding-left: 17px;
+	padding-right: 17px;
+}
+
+.sumo-product-sticky-desktop {
+  padding-top: 9rem;
+}
+
+.sumo-product-sticky-desktop .sumo-section {
+	position: relative;
+}
+.sumo-product-sticky-inner-desktop {
+	position: relative;
+	padding-left: 1rem;
+	padding-bottom: 4rem;
+}
+
+/* Sticky Buy Button – Mobile */
+/* -------------------------- */
+.sticky-mobile.stuck {
+  display: flex;
+}
+.sticky-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+	width: 100% !important;
+	height: 70px;
+	background: #004446;
+	box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.15);
+	color: #fff;
+	padding: 10px 17px;
+	text-align: left !important;
+  z-index: 10002;
+}
+@media (max-width: 575px) {
+  .sticky-mobile .sticky-mobile-brand img {
+    width: 90px;
+  }
+}
+.sticky-mobile .sticky-mobile-brand{
+	margin-right: auto;
+	width: auto;
+	display: block !important;
+}
+.sticky-mobile > .sumo-price-line {
+	margin-right: 1rem;
+}
+.sticky-mobile .btn {
+	padding: 0.77rem 1.84rem;
+  font-size: 0.77rem;
+  margin: 0 !important;
+}
+.sticky-mobile .sumo-price-line .sumo-price,
+.sticky-mobile .sumo-price-line .sumo-old-price {
+	color: #fff;
+  font-size: 1rem;
+}
+.sticky-mobile .sumo-old-price {
+	font-size: 0.55em;
+}
+@media (max-width: 575px) {
+	.sticky-mobile .sumo-price-line {
+		margin-right: 0;
+	}
+	.sticky-mobile .sumo-price-line .sumo-price {
+		border: none;
+	}
+}
+
+.sticky-mobile .as-early-access {
+  display: none;
+}
+
+/* Scroll to Top Element */
+/* --------------------- */
+
+.sumo-product-pg .scrolltop,
+.sumo-product-pg .scrolltop .container,
+.sumo-product-pg .scrolltop .row,
+.sumo-product-pg .scrolltop .row > * {
+	height: 0 !important;
+}
+.sumo-product-pg .scrolltop {
+	display: none;
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 50px;
+	left: 0;
+	text-align: center;
+	z-index: 300;
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+.sumo-product-pg .scrolltop .container {
+	padding: 0;
+	transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+.sumo-product-pg .scrolltop .row > * {
+	position: relative;
+}
+.sumo-product-pg .scrolltop .scroll {
+	position: absolute;
+	bottom: 0;
+	background: #FAFAFA;
+}
+
+/* Scroll Element transforms near bottom of page */
+@media (min-width: 992px) {
+	.sumo-product-pg .scrolltop.scroll-bottom {
+		bottom: 20px;
+		transition: bottom 0.3s;
+		-moz-transition: bottom 0.3s;
+		-webkit-transition: bottom 0.3s;
+		-o-transition: bottom 0.3s;
+	}
+	.sumo-product-pg .scrolltop.scroll-bottom .container {
+		width: 100%;
+		max-width: 100%;
+	}
+	.sumo-product-pg .scrolltop.scroll-bottom .scroll {
+		left: auto;
+		right: 65px;
+		-webkit-transform: scale(0.7, 0.7);
+		transform: scale(0.7, 0.7);
+	}
+}
+.sumo-product-pg .scroll {
+	background: transparent;
+	text-align: center;
+	padding: 1rem;
+	cursor:pointer;
+	transition: 0.3s;
+	-moz-transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	opacity: 0.8;
+	display: inline-block;
+	border-radius: 7px;
+	/* Center in Div */
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.sumo-product-pg .scroll .scrolltop-icon {
+	height: 34px !important;
+	width: 34px !important;
+	border: 3px solid #004446;
+	border-radius: 50%;
+	color: #004446;
+}
+.sumo-product-pg .scroll:hover {
+	opacity: 1;
+}
+.sumo-product-pg .scroll:hover .scrolltop-icon {
+	background: #004446;
+	transition: 0.3;
+	-moz-transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	color: #FAFAFA;
+}
+@media (max-width: 991px) {
+	.sumo-product-pg .scrolltop {
+		text-align: right;
+		padding: 0 17px;
+		bottom: 17px;
+	}
+	.sumo-product-pg .scroll {
+		background: #fff;
+		-webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+		box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.15);
+		opacity: 0.85;
+		margin: 0;
+		transform: scale(0.6, 0.6);
+		left: auto;
+		right: 0;
+	}
+}
+
+/* Lightbox */
+/* -------- */
+
+.mdb-lightbox figure img {
+	box-shadow: none;
+	border-radius: 0.5rem !important;
+}
+@media (min-width: 576px) {
+	.sumo-product-pg .mdb-lightbox figure:first-child {
+		padding-top: 0;
+	}
+	.sumo-product-pg .mdb-lightbox [class*=col-] {
+		padding-right: 17px;
+	}
+}
+@media (max-width: 575px) {
+  .sumo-product-pg .mdb-lightbox .sumo-col-xs-4 {
+    -webkit-flex: 0 0 33.33%;
+    -ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .sumo-product-pg .mdb-lightbox.row {
+    padding: 0 17px;
+    margin-top: 0.5rem;
+  }
+
+  .sumo-product-pg .mdb-lightbox .sumo-col-xs-4:first-child {
+    padding-left: 0;
+  }
+
+  .sumo-product-pg .mdb-lightbox .sumo-col-xs-4:last-child {
+    padding-right: 0;
+  }
+}

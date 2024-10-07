@@ -1,0 +1,113 @@
+<% title "Invoice of Order no: #{@order}" %>
+<% snippet "Invoice for my Order no: #{@order} at RightApp4U" %>
+
+<section class="sumo-section">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-lg-9">
+      <h1 class="text-left">Invoice Detail</h1>
+
+      <dl class="">
+        <dt>Status:</dt>
+        <dd><%= @order.status.upcase %> <span style="font-size: 81%;">(<%= @order.payment_id %>)</span></dd>
+        <div class="account-items-flex">
+          <div>
+            <dt>Date:</dt>
+            <dd><%= @order.created_at.to_formatted_s(:long) %></dd>
+          </div>
+          <div class="ml-auto">
+            <dt class="">Order ID:</dt>
+            <dd class><%= @order.id %></dd>
+          </div>
+        </div>
+        <div class="account-items-flex" style="width:85%;">
+          <div>
+            <dt>Bill From:</dt>
+            <dd>
+              RightApp4U <br>
+              <span style="font-size:81%;">(A division of Mittaltiger Enterprises)</span>
+            </dd>
+            <dd></dd>
+            <dd>3rd Floor, Solarium Business Centre,</dd>
+            <dd> No.15, 1st Cross, Raghuvanahalli,</dd>
+            <dd>Kanakapura Main Road, Bengaluru,</dd>
+            <dd>Karnataka – 560062. India.</dd>
+          </div>
+          <div class="ml-auto">
+            <dt>Bill To:</dt>
+          <dd><%= @order.user.email %></dd>
+          </div>
+        </div>
+      </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12 mb-5">
+      <div class="panel panel-default mr-2">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Order summary</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-condensed mb-0">
+              <thead>
+                <tr>
+                  <td><strong>Item</strong></td>
+                  <td class="text-center"><strong>Quantity</strong></td>
+                  <td class="text-right"><strong>Price</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+
+                <% @order.line_items.each do |line_item| %>
+                  <tr>
+                    <td>
+                      <%= line_item.product.name %> <br>
+                      <% if line_item.product.order_product_licenses.where(user_id: current_user, order_id: @order).empty? %>
+                        <span style="font-size:90%;color:#aaa;"><em>No License has been issued yet</em></span>
+                      <% else %>
+                        <% line_item.product.order_product_licenses.where(user_id: current_user, order_id: @order).each do |opl| %>
+                          <span style="font-size:90%;color:#aaa;"><em>License: <code><%= opl.license %></code></em></span>
+                        <% end %>
+                      <% end %>
+                    </td>
+                    <td class="text-center"><%= line_item.quantity %></td>
+                    <td class="text-right">₹ <%= line_item.product.sale_price * line_item.quantity %></td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td class="thick-line"></td>
+                  <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                  <td class="thick-line text-right">₹ <%= @order.total_price.to_f %></td>
+                </tr>
+                <tr>
+                  <td class="no-line"></td>
+                  <td class="no-line text-center"><strong>Shipping</strong></td>
+                  <td class="no-line text-right">₹ 0</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e9ecef;">
+                  <td class="no-line"></td>
+                  <td class="no-line text-center"><strong>Total</strong></td>
+                  <td class="no-line text-right">₹ <%= @order.total_price.to_f %> INR</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>
+    <%= link_to 'Back', account_orders_path %>
+    <% if @order.status == "captured" and @order.created_at + 60.days > DateTime.now %>
+     | <%= link_to 'Refund', account_order_refund_path(@order) %>
+    <% end %>
+   </p>
+</div>
+</section>

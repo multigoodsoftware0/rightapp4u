@@ -1,0 +1,15 @@
+<% title 'Update Profile' %>
+<style media="screen">
+  #profile {
+    padding: 54px 0;
+  }
+</style>
+<section id="profile">
+  <div class="container">
+    <h2>Editing Profile</h2>
+    <%= render 'form', profile: @profile %>
+    <!-- <%#= link_to 'Show', @profile %> | -->
+    <br>
+    <%= link_to 'Back', :back %>
+  </div>
+</section>

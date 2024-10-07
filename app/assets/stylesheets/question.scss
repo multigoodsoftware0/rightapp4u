@@ -1,0 +1,25 @@
+/* Question Modal */
+
+.sumo-question-modal .discussion-questiontext .form-control {
+	min-height: 150px;
+}
+.sumo-question-modal .modal-body,
+.sumo-question-modal .modal-footer {
+	background: #FAFAFA;
+}
+
+.sumo-question-modal .modal-footer {
+	border: none;
+}
+
+.sumo-question-modal .sumo-modal-icon {
+	width: 70px;
+	height: 70px;
+	font-size: 50px;
+	color: #fff;
+	line-height: 1.45;
+	font-weight: 900;
+	background: #007679;
+	border-radius: 50%;
+	display: inline-block;
+}

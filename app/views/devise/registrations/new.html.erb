@@ -1,0 +1,57 @@
+<% title "New Account" %>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Sign up</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="actions">
+            <%= button_tag "Sign up", class: "btn btn-primary btn-lg mb-4" %>
+          </div>
+
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+
+      <style media="screen">
+        .exclusive-text h1, .exclusive-text h2, .exclusive-text h3 {
+          padding-top: 18px;
+        }
+      </style>
+      <div class="exclusive-text col-lg-6 col-md-6 col-sm-6">
+        <h1>Get Exclusive Access To The Best Software Deals.</h1>
+        <h2 style="color: #555;">For Chartered Accountants, Company Secretaries, Tax Practitioners, Architects, Interior Designers, Consultants, Engineers, Project Managers, Entrepreneurs etc.</h2>
+        <h3 class="font-weight-normal text-muted">Get your membership for free and discover amazing deals right in your inbox.</h3>
+      </div>
+
+    </div>
+  </div>
+</section>

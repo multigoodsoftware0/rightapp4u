@@ -1,0 +1,53 @@
+<% title 'My Account' %>
+<% snippet 'Your account details on RightApp4U' %>
+
+<%= stylesheet_link_tag 'account', media: 'all', 'data-turbolinks-track' => true %>
+
+<!-- My Account -->
+<section class="pt-50" style="padding-top: 50px !important; background: #fff;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mb-30" style="padding-bottom: 50px !important;">
+          My Account
+        </h1>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--Account Menu-->
+
+<section class="sumo-bg-light text-center pt-50 pb-20" style="background: #f5f5f5;padding:50px 0 !important;">
+  <div class="container">
+    <div class="row">
+      <!-- Grid (Column) -->
+      <div class="sumo-new-grid col-lg-4 col-md-6 d-flex">
+        <div class="card">
+          <img class="my-10" src="<%= image_path 'account/as-account-purchases.svg' %>" width="auto" height="50" alt="My Products">
+          <h2>My Orders & Products</h2>
+          <p class="light">View Orders, View Invoices, Track or Refund Products</p>
+        </div>
+        <a class="sumo-card-link" href="<%= account_orders_path %>"></a>
+      </div>
+      <!-- Grid (Column) -->
+      <div class="sumo-new-grid col-lg-4 col-md-6 d-flex">
+        <div class="card">
+          <img class="my-10" src="<%= image_path 'account/as-account-login-security.svg' %>" width="auto" height="50" alt="Profile Settings">
+          <h2>Profile Settings</h2>
+          <p class="light">Update everything related to your Profile such as Address, Phone no: etc</p>
+        </div>
+        <a class="sumo-card-link" href="<%= current_user.profile ? profile_path(current_user.profile) : new_profile_path %>"></a>
+      </div>
+      <!-- Grid (Column) -->
+      <div class="sumo-new-grid col-lg-4 col-md-6 d-flex">
+        <div class="card">
+          <img class="my-10" src="<%= image_path 'account/as-account-notification.svg' %>" width="auto" height="50" alt="Email Settings">
+          <h2>Email and User Settings</h2>
+          <p class="light">Update your Name, Email and Password etc.</p>
+        </div>
+        <a class="sumo-card-link" href="<%= edit_user_registration_path %>"></a>
+      </div>
+    </div>
+  </div>
+</section>
