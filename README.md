@@ -10,4 +10,4 @@ Rightapp4u is a shameless clone of appsumo.com but for professionals in India. I
 
 # what next?
 
-- not much but if you want us to build a MVP for you in Ruby on Rails v8+ then you can visit our [website](https://bestwebventures.in/).
+- not much but if you want us to build a MVP for you in Ruby on Rails v8+ then you can visit our [website](https://railsforgedev.com/).
